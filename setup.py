@@ -59,7 +59,7 @@ setup(
     zip_safe=False,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: SRE, and Developers',
+        'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: Unix',
         'Operating System :: POSIX',
