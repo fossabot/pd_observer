@@ -156,11 +156,12 @@ def get_oncall(pd_api_token,
 
     payload = {}
     payload['time_zone'] = 'UTC'
+    payload['include[]'] = 'users'
     payload['schedule_ids[]'] = schedule_id
 
     r = requests.get(url, headers=headers, params=payload)
     try:
-        sid = r.json()['oncalls'][0]['user']['summary']
+        sid = r.json()['oncalls'][0]['user']['email'].split('@')[0]
     except IndexError:
         log.debug("Schedule Not Found for: {}".format(schedule_id))
         sid = None
