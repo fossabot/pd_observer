@@ -46,7 +46,7 @@ def read(*names, **kwargs):
 
 setup(
     name='pd_observer',
-    version='0.0.1',
+    version='0.0.2',
     description='Python tool to update your slack topic with your on-call from Pagerduty',
     author='Rhommel Lamas',
     author_email='roml@rhommell.com',
