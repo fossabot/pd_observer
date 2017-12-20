@@ -59,7 +59,7 @@ def arg_parse():
     Get all options from user input or default to ENV_VARS
     """
     usage = '%prog [options]'
-    description = ('Utility to update the topic of a slack channel with the oncall of a defined schedule')
+    description = ('This is an utility that updates the topic of a desired Slack channel with the current on-call from a Pagerduty schedule. Notice that you can use \'|\' as a string separator on the topic if you want to add extra information topic dinamically.')
     parser = OptionParser(usage=usage,
                           description=description)
     parser.add_option(
@@ -95,7 +95,7 @@ def arg_parse():
         '--topic-prefix',
         dest='topic_prefix',
         metavar='TOPIC_PREFIX',
-        help='Slack topic prefix. Default: \'On-Call: @\''
+        help='Slack topic prefix. Default: \':robot_face: On-Call: @\''
     )
     parser.add_option(
         '--dry-run',
@@ -139,7 +139,7 @@ def arg_parse():
         options.schedule_id = os.environ['SLACK_CHANNEL']
 
     if not options.topic_prefix:
-        options.topic_prefix = 'On-Call: @'
+        options.topic_prefix = ':robot_face: On-Call: @'
 
     return options
 
@@ -209,7 +209,7 @@ def update_slack_topic(slack_api_token,
             new_topic = ("{}{}".format(topic_prefix,
                                        proposed_update))
         else:
-            if "On-Call" not in current_topic:
+            if topic_prefix not in current_topic:
                 new_topic = ("{}{} | {}".format(topic_prefix,
                                                 proposed_update,
                                                 current_topic))
