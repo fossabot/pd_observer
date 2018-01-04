@@ -1,4 +1,6 @@
 # pd-observer
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frhoml%2Fpd_observer.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Frhoml%2Fpd_observer?ref=badge_shield)
+
 
 Python module that updates a Slack chat room topic with the current on-call for a pagerduty schedule.
 
@@ -35,3 +37,7 @@ HTTPS_PROXY=http://proxy:3128 pd_observer -t <SLACK_TOKEN_ID> -A <PAGERDUTY_API_
 ```shell
 docker run -it docker -t <SLACK_TOKEN_ID> -A <PAGERDUTY_API_KEY> -S <PD_SCHEDULE_ID> -C <SLACK_CHANNEL_ID>
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frhoml%2Fpd_observer.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Frhoml%2Fpd_observer?ref=badge_large)
